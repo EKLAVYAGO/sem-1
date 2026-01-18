@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Productivity Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="2.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <h2>StudentDash</h2>
+        <button onclick="switchSection('overview')">Overview</button>
+        <button onclick="switchSection('assignments')">Assignments</button>
+        <button onclick="switchSection('attendance')">Attendance</button>
+        <button onclick="switchSection('study')">Study Tracker</button>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- OVERVIEW -->
+        <section id="overview" class="section active">
+            <h2>Overview</h2>
+
+            <div class="cards">
+                <div class="card blue">
+                    <p>Pending Assignments</p>
+                    <h3 id="pendingCount">0</h3>
+                </div>
+                <div class="card green">
+                    <p>Completed Assignments</p>
+                    <h3 id="completedCount">0</h3>
+                </div>
+                <div class="card red">
+                    <p>Low Attendance</p>
+                    <h3 id="riskCount">0</h3>
+                </div>
+                <div class="card purple">
+                    <p>Study Today</p>
+                    <h3><span id="studyMinutes">0</span> min</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASSIGNMENTS -->
+        <section id="assignments" class="section">
+            <h2>Assignments</h2>
+
+            <div class="input-group">
+                <input id="assignmentInput" placeholder="Enter assignment title">
+                <button onclick="addAssignment()">Add</button>
+            </div>
+
+            <div class="split">
+                <div>
+                    <h4>Pending</h4>
+                    <ul id="pendingList"></ul>
+                </div>
+                <div>
+                    <h4>Completed</h4>
+                    <ul id="completedList"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ATTENDANCE -->
+        <section id="attendance" class="section">
+            <h2>Attendance</h2>
+
+            <div class="input-group">
+                <input id="subjectInput" placeholder="Enter subject name">
+                <button onclick="addSubject()">Add</button>
+            </div>
+
+            <ul id="subjectList"></ul>
+        </section>
+
+        <!-- STUDY -->
+        <section id="study" class="section">
+            <h2>Study Tracker</h2>
+
+            <p class="timer">
+                Session: <span id="liveTimer">00:00</span>
+            </p>
+
+            <p>
+                Total Today: <strong><span id="studyDisplay">0</span> minutes</strong>
+            </p>
+
+            <button onclick="startStudy()">Start</button>
+            <button onclick="stopStudy()">Stop</button>
+        </section>
+
+    </main>
+</div>
+
+<script src="3.js"></script>
+</body>
+</html>
